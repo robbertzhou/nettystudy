@@ -13,4 +13,15 @@ NIO入门知识：
 二、伪异步的BIO：  
 架构图：    
 
-![1578377955675](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1578377955675.png)
+![1578377955675](https://github.com/robbertzhou/nettystudy/blob/master/src/main/resources/%E4%BC%AA%E5%BC%82%E6%AD%A5.png)  
+    }  
+序号	名称	类型	含义  
+1	corePoolSize	int	核心线程池大小  
+2	maximumPoolSize	int	最大线程池大小  
+3	keepAliveTime	long	线程最大空闲时间  
+4	unit	TimeUnit	时间单位  
+5	workQueue	BlockingQueue<Runnable>	线程等待队列  
+6	threadFactory	ThreadFactory	线程创建工厂  
+7	handler	RejectedExecutionHandler	拒绝策略  
+如果对这些参数作用有疑惑的请看 ThreadPoolExecutor概述。  
+知道了各个参数的作用后，我们开始构造符合我们期待的线程池。首先看JDK给我们预定义的几
