@@ -13,4 +13,4 @@ NIO入门知识：
 二、伪异步的BIO：  
 架构图：    
 
-![1578377955675](resources/伪异步.png)
+![1578377955675](https://github.com/robbertzhou/nettystudy/blob/master/src/main/resources/%E4%BC%AA%E5%BC%82%E6%AD%A5.png)
