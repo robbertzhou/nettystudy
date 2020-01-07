@@ -23,7 +23,7 @@ public class BioTimeClilent {
             out = new PrintWriter(socket.getOutputStream(),true);  //如果不放入true的话，不能自动写入.
             Thread.sleep(100);
 
-            out.println("QUERY TIME ORDER");
+            out.println("QUERY TIME ORDER\n");
 
             String resp = in.readLine();
             System.out.println("Now is: " + resp);
