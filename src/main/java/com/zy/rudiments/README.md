@@ -13,4 +13,4 @@ NIO入门知识：
 二、伪异步的BIO：  
 架构图：    
 
-![1578377955675](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1578377955675.png)
+![1578377955675](resources/伪异步/png)
