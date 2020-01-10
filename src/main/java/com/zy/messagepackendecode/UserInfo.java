@@ -1,5 +1,8 @@
 package com.zy.messagepackendecode;
 
+import org.msgpack.annotation.Message;
+
+@Message
 public class UserInfo {
     private int age;
     private String name;
