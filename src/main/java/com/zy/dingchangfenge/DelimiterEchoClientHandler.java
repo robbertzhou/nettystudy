@@ -12,6 +12,11 @@ import io.netty.channel.ChannelHandlerContext;
 public class DelimiterEchoClientHandler extends ChannelHandlerAdapter {
     private int counter;
     static final String ECHO_REQ = "Hi,Zhouyu.Welcome to netty.$_";
+    ChannelHandlerContext ctx;
+    public void sendMsg(String msg){
+        ctx.writeAndFlush(Unpooled.copiedBuffer(ECHO_REQ.getBytes()));
+    }
+
 
     /**
      * 测试的时候发送数据
@@ -20,10 +25,10 @@ public class DelimiterEchoClientHandler extends ChannelHandlerAdapter {
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        DelimiterEchoClient.ctx = ctx;
-        for (int i=0;i<100;i++){
-            ctx.writeAndFlush(Unpooled.copiedBuffer(ECHO_REQ.getBytes()));
-        }
+        this.ctx = ctx;
+//        for (int i=0;i<100;i++){
+//            ctx.writeAndFlush(Unpooled.copiedBuffer(ECHO_REQ.getBytes()));
+//        }
     }
 
     @Override

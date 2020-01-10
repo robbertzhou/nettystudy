@@ -29,11 +29,11 @@ public class DelimiterEchoClient {
                 }
             }
         }).start();
-
-        Thread.sleep(10000);
-        for (int i=0;i<100;i++){
-            ctx.writeAndFlush(Unpooled.copiedBuffer("Hi,Zhouyu.Welcome to netty.$_".getBytes()));
+        Thread.sleep(3000);
+        for(int i=0;i<1000;i++){
+            clientHandler.sendMsg("Hi,Zhouyu.Welcome to netty.$_");
         }
+
     }
 
     public void connect(String host,int port) throws Exception{
