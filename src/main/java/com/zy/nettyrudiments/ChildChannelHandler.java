@@ -7,6 +7,6 @@ public class ChildChannelHandler extends ChannelInitializer<SocketChannel> {
     @Override
     protected void initChannel(SocketChannel socketChannel) throws Exception {
         socketChannel.pipeline().addLast(new TimeServerHandler());
-        socketChannel.pipeline().addLast(new SecondServerHandler());
+//        socketChannel.pipeline().addLast(new SecondServerHandler());
     }
 }
