@@ -8,6 +8,7 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 
 public class MsgpackEchoClient {
     public static void main(String[] args) throws Exception{
@@ -19,6 +20,7 @@ public class MsgpackEchoClient {
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
+                        ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(65535,0,2,0,2));
                         ch.pipeline().addLast("decoder",new MsgpackDecoder());
                         ch.pipeline().addLast("encoder",new MsppackEncoder());
                         ch.pipeline().addLast(new MsgPackEchoClientHandler());

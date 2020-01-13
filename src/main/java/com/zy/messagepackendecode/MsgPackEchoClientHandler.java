@@ -7,16 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MsgPackEchoClientHandler extends ChannelHandlerAdapter {
-    private final int sendNumber = 10;
+    private final int sendNumber = 1000;
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         UserInfo[] uis = userInfos();
-//        for (UserInfo uu :uis){
-//            ctx.writeAndFlush(uu);
-//        }
-//        ctx.flush();
-        ctx.writeAndFlush(uis);
+        for (UserInfo uu :uis){
+            ctx.write(uu);
+        }
+        ctx.flush();
+//        ctx.writeAndFlush(uis);
     }
 
     @Override

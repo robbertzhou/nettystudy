@@ -11,6 +11,7 @@ public class MsgPackEchoServerHandler extends ChannelHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         try{
             UserInfo[] uis = (UserInfo[])msg;
+            System.out.println("run counter is :" + (++counter));
             for (UserInfo ui : uis){
                 System.out.println("name is : " + ui.getName() + ";age=" + ui.getAge());
             }
