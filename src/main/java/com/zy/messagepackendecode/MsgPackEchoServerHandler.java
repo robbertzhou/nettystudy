@@ -6,11 +6,17 @@ import org.msgpack.type.ArrayValue;
 
 
 public class MsgPackEchoServerHandler extends ChannelHandlerAdapter {
+    private int counter = 0;
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         try{
-            ArrayValue uis = (ArrayValue)msg;
-            System.out.println("jjj");
+            UserInfo[] uis = (UserInfo[])msg;
+            for (UserInfo ui : uis){
+                System.out.println("name is : " + ui.getName() + ";age=" + ui.getAge());
+            }
+           ctx.writeAndFlush(uis);
+
+
         }catch (Exception ex){
             ex.printStackTrace();
         }

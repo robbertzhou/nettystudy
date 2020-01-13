@@ -19,7 +19,7 @@ public class MsgpackEchoClient {
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
-//                        ch.pipeline().addLast("decoder",new MsgpackDecoder());
+                        ch.pipeline().addLast("decoder",new MsgpackDecoder());
                         ch.pipeline().addLast("encoder",new MsppackEncoder());
                         ch.pipeline().addLast(new MsgPackEchoClientHandler());
                     }

@@ -19,14 +19,13 @@ public class MsgPackEchoServer {
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         ServerBootstrap bootstrap = new ServerBootstrap();
         bootstrap.group(bossGroup,workerGroup)
-                .option(ChannelOption.SO_BACKLOG,1024)
+                .option(ChannelOption.SO_BACKLOG,102400)
                 .channel(NioServerSocketChannel.class)
                 .childHandler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
-//                        ch.pipeline().addLast("encoder",new MsppackEncoder());
                         ch.pipeline().addLast("decoder",new MsgpackDecoder());
-
+                        ch.pipeline().addLast("encoder",new MsppackEncoder());
                         ch.pipeline().addLast(new MsgPackEchoServerHandler());
                     }
                 });

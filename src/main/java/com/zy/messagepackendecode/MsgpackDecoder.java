@@ -5,6 +5,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageDecoder;
 import org.msgpack.MessagePack;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MsgpackDecoder extends MessageToMessageDecoder<ByteBuf> {
@@ -15,6 +16,6 @@ public class MsgpackDecoder extends MessageToMessageDecoder<ByteBuf> {
         array = new byte[length];
         msg.getBytes(msg.readerIndex(),array,0,length);
         MessagePack pack = new MessagePack();
-        out.add(pack.read(array));
+        out.add(pack.read(array,UserInfo[].class));
     }
 }
