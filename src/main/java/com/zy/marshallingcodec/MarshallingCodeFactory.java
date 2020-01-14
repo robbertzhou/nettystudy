@@ -6,6 +6,13 @@ import org.jboss.marshalling.Marshalling;
 import org.jboss.marshalling.MarshallingConfiguration;
 
 public class MarshallingCodeFactory {
+    public static void main(String[] args){
+        MarshallingEncoder encoder = buildMarshallingEncoder();
+        String jj = "ewewerqwerw";
+        MarshallingDecoder decoder = buildMarshallingDecoder();
+
+
+    }
     /**
      * 创建Marshalling解码器MarshallingDecoder
      * @return
